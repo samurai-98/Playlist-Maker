@@ -14,7 +14,7 @@ class playlist {
 
     public:
     void addSong(song title);
-    //void removeSong(song title);
+    void removeSong(song title);
     void printPlaylist();
 
 };
