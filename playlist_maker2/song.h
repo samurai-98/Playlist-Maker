@@ -11,18 +11,38 @@ class song
 private:
     string artist;
     string name;
-    int id;
+    //int id;
 public:
-    song();
-    //~song();
+    song() {
+        artist = "";
+        name = "";
+        //id = 0;
+    }
 
-    void setName(string songName);
-    void setArtist(string artistName);
-    void setId(int loc);
+    void setName(string songName) {
+        name = songName;
+    }
 
-    string getName();
-    string getArtist();
-    int getId();
+    void setArtist(string artistName) {
+        artist = artistName;
+    }
+
+    /*void setId(int loc){
+        id = loc;
+    }*/
+
+    string getName() {
+        return name;
+    }
+
+    string getArtist() {
+        return artist;
+    }
+
+    /*int getId() {
+        return id;
+    }*/
+
 };
 
 #endif
