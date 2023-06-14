@@ -15,11 +15,11 @@ class playlist {
     map<string, vector<string>> songMap;
 
     public:
-    //string lowerCase(string line);
     void addSong(song title);
     void removeSong();
     string printVec(vector<string> strVec);
     void printPlaylist();
+    void printByArtist();
 
 };
 
