@@ -11,12 +11,10 @@ class song
 private:
     string artist;
     string name;
-    //int id;
 public:
     song() {
         artist = "";
         name = "";
-        //id = 0;
     }
 
     void setName(string songName) {
@@ -27,10 +25,6 @@ public:
         artist = artistName;
     }
 
-    /*void setId(int loc){
-        id = loc;
-    }*/
-
     string getName() {
         return name;
     }
@@ -38,11 +32,6 @@ public:
     string getArtist() {
         return artist;
     }
-
-    /*int getId() {
-        return id;
-    }*/
-
 };
 
 #endif
