@@ -10,8 +10,9 @@ void displayMenu() {
     cout << "1: Add Song" << endl;
     cout << "2: Remove Song" << endl;
     cout << "3: Print Playlist" << endl;
-    cout << "4: Display Menu" << endl;
-    cout << "5: Exit" << endl << endl;
+    cout << "4: Print Songs by a Specific Artist" << endl;
+    cout << "5: Display Menu" << endl;
+    cout << "6: Exit" << endl << endl;
 }
 
 
@@ -24,7 +25,7 @@ int main() {
 
     while (cont != false) {
 
-        cout << "What would you like to do?: ";
+        cout << "What would you like to do? (Enter '5' to see options): ";
         cin >> decision;
         cout << endl;
 
@@ -53,20 +54,13 @@ int main() {
             }
         } else if (decision == 2) {
             myPlaylist.removeSong();
-            cin.clear();
-            cin.ignore();
-            continue;
         } else if (decision == 3) {
             myPlaylist.printPlaylist();
-            cin.clear();
-            cin.ignore();
-            continue;
         } else if (decision == 4) {
-            displayMenu();
-            cin.clear();
-            cin.ignore();
-            continue;
+            myPlaylist.printByArtist();
         } else if (decision == 5) {
+            displayMenu();
+        } else if (decision == 6) {
             cout << "Goodbye" << endl;
             cont = false;
         } else {
@@ -76,9 +70,6 @@ int main() {
             cin.ignore();
             continue;
         }
-
-        
-        
     }
 
     return 0;
