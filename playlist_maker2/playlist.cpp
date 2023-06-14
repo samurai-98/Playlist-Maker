@@ -2,18 +2,12 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include <cctype>
-#include <algorithm>
 #include <map>
 #include "playlist.h"
 #include "song.h"
 
 using namespace std;
 
-/*string playlist::lowerCase(string line) {
-    transform(line.begin(), line.end(), line.begin(), [](unsigned char c){ return tolower(c); });
-    return line;
-}*/
 
 void playlist::addSong(song title) {
     string player = title.getArtist();
@@ -51,7 +45,11 @@ void playlist::removeSong() {
         }
     }
     songMap[player].clear();
-    songMap[player] = tmpVec;
+    if (tmpVec.size() == 0) {
+        songMap.erase(player);
+    } else {
+        songMap[player] = tmpVec;
+    }
 }
 
 string playlist::printVec(vector<string> strVec) {
@@ -70,7 +68,24 @@ string playlist::printVec(vector<string> strVec) {
 }
 
 void playlist::printPlaylist() {
+    int i;
+
     for (auto pair: songMap) {
-        cout << pair.first << " - " << printVec(pair.second) << endl;
+        //cout << pair.first << " - " << printVec(pair.second) << endl;
+        if (pair.second.size() < 2) {
+            cout << pair.first << " - " << pair.second[0] << endl;
+        } else {
+            for (i = 0; i < pair.second.size(); i++) {
+                cout << pair.first << " - " << pair.second[i] << endl;
+            }
+        }
     }
+}
+
+void playlist::printByArtist() {
+    string player;
+    cout << "Artist: ";
+    cin.ignore();
+    getline(cin, player);
+    cout << player << " - " << printVec(songMap[player]) << endl;
 }
